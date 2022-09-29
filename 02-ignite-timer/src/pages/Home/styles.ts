@@ -29,10 +29,15 @@ export const FormContainer = styled.div`
   flex-wrap: wrap;
 `
 
-export const TaskInput = styled.input`
+const BaseInput = styled.input `
+  background: transparent;
 `
 
-export const MinutesAmountInput = styled.input `
+export const TaskInput = styled(BaseInput)`
+  background: transparent;
+`
+
+export const MinutesAmountInput = styled(BaseInput) `
 `
 
 
