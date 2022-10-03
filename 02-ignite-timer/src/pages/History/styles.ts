@@ -59,7 +59,24 @@ export const HistoryList = styled.div `
       &:last-child {
         padding-right: 1.5rem;
       }
-
     }
+  }
+`
+
+interface StatusProps {
+  statusColor: 'yellow' | 'red' | 'green'
+}
+
+export const Status = styled.span<StatusProps>`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: ${(props)=>props.theme['yellow-500']};
   }
 `
