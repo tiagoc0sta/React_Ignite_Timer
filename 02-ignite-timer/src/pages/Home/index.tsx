@@ -14,25 +14,7 @@ import {
 import { NewCycleForm } from "./components/NewCycleform";
 import { Countdown } from "./components/Countdown";
 
-interface Cycle {
-  id: string;
-  task: string;
-  minutesAmount: number;
-  startDate: Date;
-  interruptedDate?: Date;
-  finshedDate?: Date;
-}
 
-interface CyclesContextType {
-  activeCycle: Cycle | undefined
-  activeCycleId: string | null
-  amountSecondsPassed: number
-  setSecondsPassed:(seconds: number) => void
-  markCurrentCycleAsFinished: () => void
-  
-}
-
-export const CyclesContext = createContext({} as CyclesContextType)
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
@@ -121,20 +103,12 @@ export function Home(){
   return (
     <HomeContainer>      
         <form onSubmit={handleSubmit(handleCreateNewCycle)} action="">
-          <CyclesContext.Provider 
-            value={{
-              activeCycle, 
-              activeCycleId,  
-              markCurrentCycleAsFinished,
-              amountSecondsPassed,
-              setSecondsPassed,
-            }}
-            >
+         
               <FormProvider {...newCycleForm}>
                 <NewCycleForm />
               </FormProvider>
             <Countdown />    
-            </CyclesContext.Provider>    
+              
 
         {activeCycle? (
           <StopCountdownButton onClick={handleInterruptedCycle} type="button">
