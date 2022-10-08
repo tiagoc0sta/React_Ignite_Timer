@@ -1,4 +1,4 @@
 # React_Ignite_Timer
 
 Tachnologies used
-phosphor-react - Styled components - react hook form - Zod - context provider
+phosphor-react - Styled components - react hook form - Zod - context provider - Reducer
